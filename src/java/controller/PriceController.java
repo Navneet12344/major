@@ -25,7 +25,7 @@ public class PriceController extends HttpServlet {
               String cin = request.getParameter("value1");
               String cout= request.getParameter("value2");
               String HName=request.getParameter("value3");
-//              System.out.println(HName);
+              System.out.println(HName);
               DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
               Date din=df.parse(cin);    //Wed Jan 15 00:09:00 IST 2020
               Date dout=df.parse(cout);     // df.format(d);             //2020-01-15
