@@ -33,6 +33,28 @@ public class Database {
             return "Unknown Error";
         }
     }
+    public static String checkAdmin(String username, String pass) throws SQLException, ClassNotFoundException {
+        try (Connection con = ConnectionM.getConnection()) {
+            PreparedStatement ps = con.prepareCall("SELECT * FROM ADMIN WHERE USERNAME=?");
+            ps.setString(1,username);
+            ResultSet rs=ps.executeQuery();
+            if(!rs.next()){ 
+                return "Invalid admin name";
+            }
+            else{
+                if(rs.getString(3).equals(pass)){
+                    return "Valid admin";
+                }
+                else{
+                    return "Invalid Password";
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return "Unknown Error";
+        }
+    }
     public static int save(String sql) {
 		int i = 0;
 		System.out.println("query is ::::: "+sql.toString());
