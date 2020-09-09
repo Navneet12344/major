@@ -99,5 +99,25 @@ public class Database {
             }
 	    return result;
     }
+    public static int storeHotel(String hotelname,String rating,String address,String about,String mbno,String price){
+         int flag=0;
+         try (Connection con = ConnectionM.getConnection()){
+                PreparedStatement ps=con.prepareCall("INSERT INTO HOTELS VALUES(?,?,?,?,?,?)");
+                ps.setString(1,hotelname);
+                ps.setString(2,rating);
+                ps.setString(3,address);
+                ps.setString(4,about);
+                ps.setString(5,mbno);
+                ps.setString(6,price);
+		ResultSet rs=ps.executeQuery();
+                while(rs.next()){
+                    flag=1;
+                    return flag;
+                }
+	    } catch (Exception ex) {
+		System.out.println(ex);
+            }
+	    return flag;
+    }
 }
 

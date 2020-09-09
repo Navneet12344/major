@@ -118,7 +118,7 @@
 		    </div>
 		    <div class="form-group">
 			    <label for="phone">Mobile no:</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter Mobile No." pattern="[0-9]{10}" required>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter Mobile No." pattern="[0-9]{10,11}" required>
 		    </div>
 		    <div class="form-group">
 			    <label for="pwd">Password:</label>

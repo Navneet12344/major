@@ -25,7 +25,7 @@ public class SignUpController extends HttpServlet {
 	if(flag == 1)
 	{
 		pout.println("<script type=\"text/javascript\">");
-		pout.println("location='index.html';");
+		pout.println("location='index.jsp';");
 		pout.println("</script>");
 		
         }
@@ -33,7 +33,7 @@ public class SignUpController extends HttpServlet {
 	{
 		pout.println("<script type=\"text/javascript\">");
 		pout.println("alert('Something went wrong.');");
-		pout.println("location='index.html';");
+		pout.println("location='index.jsp';");
 		pout.println("</script>");
 	}
         

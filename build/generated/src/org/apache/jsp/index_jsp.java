@@ -161,7 +161,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t    </div>\n");
       out.write("\t\t    <div class=\"form-group\">\n");
       out.write("\t\t\t    <label for=\"phone\">Mobile no:</label>\n");
-      out.write("                            <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-control\" placeholder=\"Enter Mobile No.\" pattern=\"[0-9]{10}\" required>\n");
+      out.write("                            <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-control\" placeholder=\"Enter Mobile No.\" pattern=\"[0-9]{11}\" required>\n");
       out.write("\t\t    </div>\n");
       out.write("\t\t    <div class=\"form-group\">\n");
       out.write("\t\t\t    <label for=\"pwd\">Password:</label>\n");

@@ -51,7 +51,7 @@
             <label for="about">About:</label>
             <textarea id="about" name="abt" rows="5" class="form-control"></textarea>
             <label for="mbno">Contact details:</label>
-            <input type="tel" class="form-control" placeholder="Enter Contact no." name="mbno" id="mbno" autocomplete="off" pattern="[0-9]{10}" required>
+            <input type="tel" class="form-control" placeholder="Enter Contact no." name="mbno" id="mbno" autocomplete="off" pattern="[0-9]{10,11}" required>
             <label for="img">Add image:</label>
             <input type="file" class="form-control" name="img" id="img" autocomplete="off" accept="image/*" required>
             <label for="price">Price:</label>
