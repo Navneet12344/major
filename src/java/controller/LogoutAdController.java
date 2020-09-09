@@ -11,14 +11,14 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-@WebServlet(name = "LogoutController", urlPatterns = {"/logout"}) //annotation so that we dont use web.xml deployment descriptors
-public class LogoutController extends HttpServlet {
+@WebServlet(name = "LogoutAdController", urlPatterns = {"/logoutad"}) //annotation so that we dont use web.xml deployment descriptors
+public class LogoutAdController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession hs=request.getSession(false);
             if(hs!=null){
-                hs.removeAttribute("mail");
+                hs.removeAttribute("adname");
                 hs.invalidate();
                 response.sendRedirect("index.jsp");
             }
