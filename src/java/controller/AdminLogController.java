@@ -24,15 +24,9 @@ public class AdminLogController extends HttpServlet {
               {
                   HttpSession session=request.getSession(true);
                   session.setAttribute("adname" ,username);
-                  response.sendRedirect("index.jsp");
+                  response.sendRedirect("welcomead.jsp");
               }
               else{
-//                  if(status.equals("Invalid email id")){
-//                       onclick();
-//                  }
-//                  else{
-//                      
-//                  }
                   out.println(status);
               }
               

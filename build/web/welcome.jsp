@@ -3,7 +3,7 @@
     response.setHeader("Pragma", "no-store,no-cache");
     response.setHeader("Cache-Control", "no-store,no-cache");
     if (request.getSession(false) == null) {
-        response.sendRedirect("index.html");
+        response.sendRedirect("index.jsp");
     }
 %>
 <!DOCTYPE html>
