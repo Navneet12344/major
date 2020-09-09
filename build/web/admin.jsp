@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1; width: 40%; margin-right: auto; margin-left: auto; }
+form {border: 3px solid #f1f1f1; width: 40%; margin-right: auto; margin-left: auto; background-color: rgba(0,0,0,.7);}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -49,7 +49,10 @@ img.avatar {
 .container {
   padding: 16px;
 }
-
+.container2 {
+  padding: 16px;
+  background-color : rgba(0,0,0,.7);
+}
 span.psw {
   float: right;
   padding-top: 16px;
@@ -89,9 +92,9 @@ span.psw {
     </label>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
+  <div class="container2" style="background-color:#f1f1f1">
       <a href="#"><button type="button" class="cancelbtn">Cancel</button></a>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <span class="psw"><a href="#">Forgot password?</a></span>
   </div>
 </form>
 

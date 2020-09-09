@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Database;
 
-@WebServlet(name = "AdminLogController", urlPatterns = {"/adlogin"})
-public class AdminLogController extends HttpServlet {
+@WebServlet(name = "LoginAdController", urlPatterns = {"/adlogin"})
+public class LoginAdController extends HttpServlet {
      protected void processRequest(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException, SQLException{
           response.setContentType("text/html;charset=UTF-8");
           try(PrintWriter out=response.getWriter()){
