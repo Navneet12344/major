@@ -305,32 +305,5 @@
 <!-- for scrolling -->
 <script src="js/smooth-scroll.js"></script>
 <script src="js/common.js"></script>
-<script type="text/javascript">
-            function showPrice()
-            {
-                var c_in=document.getElementById("Check-in").value;
-                var c_out=document.getElementById("Check-out").value;
-                var hname=document.getElementById("hn").value;
-//                console.log(hname);
-                var xmlhttpobject;
-                if(window.XMLHttpRequest)
-//                    alert("yes supported by browser");
-                    xmlhttpobject=new XMLHttpRequest();
-                else
-                    xmlhttpobject=new ActiveXObject("Microsoft.XMLHTTP");
-                
-                xmlhttpobject.onreadystatechange=function()
-                {
-//                    alert("Ready state value:- "+xmlhttpobject.readyState);
-                    if(xmlhttpobject.readyState===4 && xmlhttpobject.status===200){
-//                        alert(xmlhttpobject.responseText);
-                        document.getElementById("addcontent").innerHTML=xmlhttpobject.responseText;
-                    }
-                };
-                xmlhttpobject.open("GET","price?value1="+c_in+"&value2="+c_out+"&value3="+hname,true);//we can pass any parameter in url but same parameter should be used in getParameter
-                xmlhttpobject.send();
-                //document.getElementById() return object of input
-            }
-</script>
 </body>
 </html>

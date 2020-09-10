@@ -30,12 +30,12 @@ public class PriceController extends HttpServlet {
               Date din=df.parse(cin);    //Wed Jan 15 00:09:00 IST 2020
               Date dout=df.parse(cout);     // df.format(d);             //2020-01-15
               int date=din.getDate();
-//              System.out.println(date);
+              System.out.println(date);
               int month=din.getMonth()+1;
-//              System.out.println(month);
+              System.out.println(month);
               int y1 = din.getYear();
               int year=y1+1900;
-//              System.out.println(year);
+              System.out.println(year);
               if((din.getMonth()+1)!=(dout.getMonth()+1)){
                   if((month==1||month==3||month==5||month==7||month==8||month==10||month==12)){
                      days=(31-din.getDate())+dout.getDate();
@@ -46,6 +46,7 @@ public class PriceController extends HttpServlet {
               }
               else{
                   days=dout.getDate()-din.getDate();
+                  System.out.println(days);
               }
             total=Database.getPrice(days,HName);
             out.println(total);

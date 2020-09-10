@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import javax.servlet.http.Part;
 import model.Database;
 
 @WebServlet(name="CreateController",urlPatterns={"/create"}) //annotation so that we dont use web.xml deployment descriptors
+@MultipartConfig()
 public class CreateController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -22,34 +24,28 @@ public class CreateController extends HttpServlet {
              String address = request.getParameter("addr");
              String about = request.getParameter("abt");
              String mbno=request.getParameter("mbno");
-             
+             String price=request.getParameter("price");
+             int hid=Database.storeHotel(hotelname,rating,address,about,mbno,price);
              Part filepart=request.getPart("img");
              String path=request.getServletContext().getRealPath("/images");
              String genFileName=util.Utility.generateFileName(filepart.getSubmittedFileName());
-             if(util.Utility.saveFile(genFileName, path, filepart.getInputStream()) && Database.saveImageToDatabase(genFileName))
+             if(util.Utility.saveFile(genFileName, path, filepart.getInputStream()) && Database.saveImageToDatabase(hid,genFileName))
                {
-                    out.print("file uploaded to server successfully....please visit next time");
-                }
-             String price=request.getParameter("price");
-             System.out.println(price);
-             System.out.println(mbno);
-             int flag=Database.storeHotel(hotelname,rating,address,about,mbno,price);
-             System.out.println(flag);
-             if(flag == 1)
-                {
-                        out.println("<script type=\"text/javascript\">");
-                        out.println("alert('Hotel added successfully.');");
-                        out.println("location='welcomead.jsp');");
-                        out.println("</script>");
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Hotel added successfully.');");
+                    out.println("location='welcomead.jsp';");
+                    out.println("</script>");
 
-                }
-                else 
-                {
-                        out.println("<script type=\"text/javascript\">");
-                        out.println("alert('Something went wrong.');");
-                        out.println("location='welcomead.jsp';");
-                        out.println("</script>");
-                }
+               }
+             
+            else 
+            {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Something went wrong.');");
+                    out.println("location='adminform.jsp';");
+                    out.println("</script>");
+            }
+            
         }
     }
 

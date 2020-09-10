@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
+import model.HotelPage;
+import model.Hotel;
 
 public final class welcomead_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,8 +44,10 @@ public final class welcomead_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\r');
-      out.write('\n');
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
           //scriplet tag to add java code in jsp
     response.setHeader("Pragma", "no-store,no-cache");
     response.setHeader("Cache-Control", "no-store,no-cache");
@@ -87,8 +92,20 @@ public final class welcomead_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!--<input type=\"button\" value=\"Create Hotel\">-->\r\n");
       out.write("<!--        <input type=\"button\" value=\"Edit Hotel\">\r\n");
       out.write("        <input type=\"button\" value=\"Remove Hotel\">-->\r\n");
+      out.write("        ");
+ List<Hotel> list=HotelPage.getRecords();
+             out.print("<h1>Hotel Details</h1>");
+             out.print("<table border='1' width='70%'>");
+             out.print("<tr><th>Hid</th><th>HName</th><th>Rating</th><th>Address</th><th>About</th><th>Contact No.</th><th>Price</th>");
+             for(Hotel h:list){
+                   out.print("<tr><td>"+h.getHotelid()+"</td><td>"+h.getHotelname()+"</td><td>"+h.getRating()+"</td><td>"+h.getAddress()+"</td><td>"+h.getAbout()+"</td><td>"+h.getContact_No()+"</td><td>"+h.getPrice()+"</td><td>");
+             
+             }
+            out.print("</table>");
+         
+      out.write("\r\n");
       out.write("        <a href=\"logoutad\">Logout</a><br>\r\n");
-      out.write("        <form action=\"create\" method=\"post\" class=\"ml-auto\">\r\n");
+      out.write("        <form action=\"create\" method=\"post\" class=\"ml-auto\" enctype=\"multipart/form-data\">\r\n");
       out.write("            <label for=\"hname\">Hotel name:</label>\r\n");
       out.write("            <input type=\"text\" class=\"form-control\" placeholder=\"Enter Hotel Name\" name=\"hname\" id=\"hname\" autocomplete=\"off\" required>\r\n");
       out.write("            <label for=\"rate\">Ratings:</label>\r\n");
@@ -98,7 +115,7 @@ public final class welcomead_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <label for=\"about\">About:</label>\r\n");
       out.write("            <textarea id=\"about\" name=\"abt\" rows=\"5\" class=\"form-control\"></textarea>\r\n");
       out.write("            <label for=\"mbno\">Contact details:</label>\r\n");
-      out.write("            <input type=\"tel\" class=\"form-control\" placeholder=\"Enter Contact no.\" name=\"mbno\" id=\"mbno\" autocomplete=\"off\" pattern=\"[0-9]{11}\" required>\r\n");
+      out.write("            <input type=\"tel\" class=\"form-control\" placeholder=\"Enter Contact no.\" name=\"mbno\" id=\"mbno\" autocomplete=\"off\" pattern=\"[0-9]{10,11}\" required>\r\n");
       out.write("            <label for=\"img\">Add image:</label>\r\n");
       out.write("            <input type=\"file\" class=\"form-control\" name=\"img\" id=\"img\" autocomplete=\"off\" accept=\"image/*\" required>\r\n");
       out.write("            <label for=\"price\">Price:</label>\r\n");

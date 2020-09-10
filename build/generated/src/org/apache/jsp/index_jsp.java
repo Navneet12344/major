@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
+import model.Hotel;
+import model.Database;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +44,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("<head>\n");
@@ -92,7 +98,35 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </form>\n");
       out.write("\t\t    <ul class=\"navbar-nav navbar-right\">\n");
       out.write("\t\t      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModalS\"><i class=\"fa fa-user mr-1\" aria-hidden=\"true\"></i>Sign Up</a></li>\n");
+      out.write("                    \n");
+      out.write("                                ");
+ if( session.getAttribute("mail") != null) { 
+      out.write("\n");
+      out.write("                     <li class=\"nav-item\">\n");
+      out.write("                       \n");
+      out.write("                       <div class=\"btn-group\">\n");
+      out.write("             \t\t\t<button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
+      out.write("                \t\t\t");
+      out.print( session.getAttribute("uname") );
+      out.write("\n");
+      out.write("              \t\t\t</button>\n");
+      out.write("              \t\t\t<div class=\"dropdown-menu\">\n");
+      out.write("                                    <a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#appointmentModal\">Bookings</a>\n");
+      out.write("                \t\t    <a class=\"dropdown-item\" href=\"logout\">Logout</a>\n");
+      out.write("                \t\t\t\n");
+      out.write("              \t\t        </div>\n");
+      out.write("                      </div>\n");
+      out.write("                     </li>\n");
+      out.write("                    \n");
+      out.write("                      ");
+ } else{
+      out.write("\n");
       out.write("\t\t      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModalL\"><i class=\"fa fa-sign-in mr-1\" aria-hidden=\"true\"></i>Login</a></li>\n");
+      out.write("                      ");
+}
+      out.write("\n");
+      out.write("                      \n");
+      out.write("                      \n");
       out.write("\t\t    </ul>\n");
       out.write("\t\t  </div>\n");
       out.write("\t\t</nav>\n");
@@ -161,7 +195,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t    </div>\n");
       out.write("\t\t    <div class=\"form-group\">\n");
       out.write("\t\t\t    <label for=\"phone\">Mobile no:</label>\n");
-      out.write("                            <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-control\" placeholder=\"Enter Mobile No.\" pattern=\"[0-9]{11}\" required>\n");
+      out.write("                            <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-control\" placeholder=\"Enter Mobile No.\" pattern=\"[0-9]{10,11}\" required>\n");
       out.write("\t\t    </div>\n");
       out.write("\t\t    <div class=\"form-group\">\n");
       out.write("\t\t\t    <label for=\"pwd\">Password:</label>\n");
@@ -223,7 +257,42 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<section>\n");
       out.write("\t<div class=\"container-fluid\">\n");
       out.write("        <h3 class=\"my-5 text-secondary\">These top hotels are just a click away!</h3>\n");
-      out.write("        <div class=\"row text-center\">\n");
+      out.write("        ");
+int count=Database.NoofHotels();
+        System.out.println(count);
+        for(int i=0;i<count;i++) { 
+      out.write("    \n");
+      out.write("           <div class=\"row text-center\">  \n");
+      out.write("                <div class=\"col-lg-4 col-md-4 col-12\">\n");
+      out.write("        \t\t<div class=\"card\" style=\"width:400px;\">\n");
+      out.write("                            ");
+List<Hotel> list=Database.getHotelRecords();
+                            for(Hotel h:list){
+                               int hid=Integer.parseInt(h.getHotelid());    
+                               String iname=Database.getImageName(hid);
+                            
+      out.write("\n");
+      out.write("                            \n");
+      out.write("                            <img class=\"card-img-top\" src=\"images/iname\" style=\"height: 200px;\" alt=\"image\">\n");
+      out.write("\t\t\t\t<div class=\"card-body\">\n");
+      out.write("\t\t\t\t    <h4 class=\"card-title\">");
+      out.print(h.getHotelname());
+      out.write("</h4>\n");
+      out.write("\t\t\t\t    <p class=\"card-text\">");
+      out.print(h.getRating());
+      out.write(" <br> ");
+      out.print(h.getAddress());
+      out.write("</p>\n");
+      out.write("\t\t\t\t    <a href=\"hotel1.jsp\" class=\"btn btn-primary\">Visit</a>\n");
+      out.write("                                </div>\n");
+      out.write("\t\t\t    </div>\n");
+      out.write("        \t</div>\n");
+      out.write("           </div>\n");
+      out.write("        ");
+ } 
+      out.write("\n");
+      out.write("        \n");
+      out.write("<!--        <div class=\"row text-center\">\n");
       out.write("        \t<div class=\"col-lg-4 col-md-4 col-12\">\n");
       out.write("        \t\t<div class=\"card\" style=\"width:400px;\">\n");
       out.write("                            <img class=\"card-img-top\" src=\"images/1st hotel/img1.jpg\" style=\"height: 200px;\" alt=\"image\">\n");
@@ -374,7 +443,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t  </div>\n");
       out.write("\t\t\t    </div>\n");
       out.write("        \t</div>\n");
-      out.write("        </div>\n");
+      out.write("        </div>-->\n");
       out.write("    </div>\n");
       out.write("</section>\n");
       out.write("<!-- hotels with images ends -->\n");

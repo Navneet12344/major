@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="model.Hotel"%>
+<%@page import="model.Database"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +52,27 @@
                     </form>
 		    <ul class="navbar-nav navbar-right">
 		      <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#myModalS"><i class="fa fa-user mr-1" aria-hidden="true"></i>Sign Up</a></li>
+                    
+                                <% if( session.getAttribute("mail") != null) { %>
+                     <li class="nav-item">
+                       
+                       <div class="btn-group">
+             			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                			<%= session.getAttribute("uname") %>
+              			</button>
+              			<div class="dropdown-menu">
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#appointmentModal">Bookings</a>
+                		    <a class="dropdown-item" href="logout">Logout</a>
+                			
+              		        </div>
+                      </div>
+                     </li>
+                    
+                      <% } else{%>
 		      <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#myModalL"><i class="fa fa-sign-in mr-1" aria-hidden="true"></i>Login</a></li>
+                      <%}%>
+                      
+                      
 		    </ul>
 		  </div>
 		</nav>
@@ -180,6 +203,8 @@
 <section>
 	<div class="container-fluid">
         <h3 class="my-5 text-secondary">These top hotels are just a click away!</h3>
+        
+        
         <div class="row text-center">
         	<div class="col-lg-4 col-md-4 col-12">
         		<div class="card" style="width:400px;">

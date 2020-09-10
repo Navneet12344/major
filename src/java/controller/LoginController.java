@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
                   HttpSession session=request.getSession(true);
                   session.setAttribute("mail" ,email_add);
                   session.setAttribute("uname" ,name);
-                  response.sendRedirect("welcome.jsp");
+                  response.sendRedirect("index.jsp");
               }
               else{
 //                  if(status.equals("Invalid email id")){

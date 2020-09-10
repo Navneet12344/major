@@ -16,16 +16,14 @@ public class LogoutController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession hs=request.getSession(false);
-            if(hs!=null){
-                hs.removeAttribute("mail");
-                hs.invalidate();
-                response.sendRedirect("index.jsp");
-            }
-            else{
-                response.sendRedirect("index.jsp");
-                showMessageDialog(null, "thank you for using java");
-            }
+                out.println("<script type=\"text/javascript\">");
+		out.println("location='index.jsp';");
+			//add session
+			
+		request.getSession().removeAttribute("mail");
+		request.getSession().removeAttribute("uname");
+                request.getSession().invalidate();
+	        out.println("</script>");
         }
     }
 
