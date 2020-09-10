@@ -41,7 +41,7 @@
 <!--        <input type="button" value="Edit Hotel">
         <input type="button" value="Remove Hotel">-->
         <a href="logoutad">Logout</a><br>
-        <form action="create" method="post" class="ml-auto">
+        <form action="create" method="post" class="ml-auto" enctype="multipart/form-data">
             <label for="hname">Hotel name:</label>
             <input type="text" class="form-control" placeholder="Enter Hotel Name" name="hname" id="hname" autocomplete="off" required>
             <label for="rate">Ratings:</label>

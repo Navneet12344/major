@@ -100,24 +100,33 @@ public class Database {
 	    return result;
     }
     public static int storeHotel(String hotelname,String rating,String address,String about,String mbno,String price){
-         int flag=0;
+            int flag=0;
          try (Connection con = ConnectionM.getConnection()){
-                PreparedStatement ps=con.prepareCall("INSERT INTO HOTELS VALUES(?,?,?,?,?,?)");
+                String sql="INSERT INTO HOTELS(HName,Rating,Address,About,Contact_no,Price) VALUES(?,?,?,?,?,?)";
+                PreparedStatement ps=con.prepareStatement(sql);
                 ps.setString(1,hotelname);
                 ps.setString(2,rating);
                 ps.setString(3,address);
                 ps.setString(4,about);
                 ps.setString(5,mbno);
                 ps.setString(6,price);
-		ResultSet rs=ps.executeQuery();
-                while(rs.next()){
-                    flag=1;
-                    return flag;
-                }
+		flag=ps.executeUpdate();
 	    } catch (Exception ex) {
 		System.out.println(ex);
             }
 	    return flag;
     }
+    public static boolean saveImageToDatabase(String fileName)
+     {
+         try(Connection connection=ConnectionM.getConnection())
+         {
+                PreparedStatement ps=connection.prepareCall("INSERT INTO IMAGE VALUES(?)");
+                ps.setString(1,fileName);
+                return ps.executeUpdate()>0;
+         }
+         catch(Exception e){
+             return false;
+         }
+     }
 }
 
