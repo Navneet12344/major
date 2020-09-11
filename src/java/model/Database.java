@@ -208,22 +208,19 @@ public class Database {
         } 
        return iname;
     }
-//    public static int getHotelId(String hname){
-//       int hid=0;
-//       try{
-//            Connection con=ConnectionM.getConnection();
-//            PreparedStatement ps=con.prepareStatement("SELECT HID FROM HOTELS WHERE HNAME=?");
-//            ps.setString(1,hname);
-//            ResultSet rs=ps.executeQuery();
-//            while(rs.next()){
-//                hid=Integer.parseInt(rs.getString(1));
-//            }
-//        }
-//        catch(ClassNotFoundException | SQLException e)
-//        {
-//            System.out.println(e);
-//        } 
-//       return hid;
-//    }
+    public static int removeHotel(int hid){
+       int flag=0;
+       try{
+            Connection con=ConnectionM.getConnection();
+            PreparedStatement ps=con.prepareStatement("DELETE FROM HOTELS WHERE HID=?");
+            ps.setInt(1,hid);
+            flag=ps.executeUpdate();
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            System.out.println(e);
+        } 
+       return flag;
+    }
 }
 

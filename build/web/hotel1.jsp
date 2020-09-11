@@ -14,7 +14,7 @@
 <header id="nav-bar">
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
 	<i class="fa fa-h-square mr-1" aria-hidden="true" style="font-size: 30px; color: red;"></i>
-	<a class="navbar-brand text-danger" href="index.html">HOTELS.com</a>
+	<a class="navbar-brand text-danger" href="index.jsp">HOTELS.com</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
 	<span class="navbar-toggler-icon"></span>
 	</button>
@@ -45,8 +45,9 @@
     Hotel h=Database.getHotelFromId(hid);
     String iname=Database.getImageName(hid);
 %>
-<img src="images/<%=iname%>" alt="Hotel">
-
+<div class="container text-center">
+    <img width="90%" height="350px;" src="images/<%=iname%>" alt="Hotel">
+</div>
 <!--<section>
 <div class="container-fluid">
 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -286,8 +287,8 @@
                     <input type="date" class="mr-5" id="Check-in" min="2018-02-01" name="Check-in">
 		    <label for="Check-out">Check-out:</label>
 		    <input type="date" id="Check-out" name="Check-out">
-                    <!--<input type="hidden" value="%=h.getHotelname()%>" id="hn" name="hname">-->
-                    <%session.setAttribute("hotelname",h.getHotelname());%>
+                    <input type="hidden" value="<%=h.getHotelname()%>" id="hn" name="hname">
+                    <!--%session.setAttribute("hotelname",h.getHotelname());%-->
                     <input type="submit" class="btn btn-success" value="Check Price" onclick="showPrice()">
                     <p class="mt-3">Total price :<span id="addcontent"></span></p>
                     <input type="submit" class="btn btn-primary" value="Make Payment">
@@ -298,7 +299,7 @@
 <!-- price end -->
 
 <footer>
-	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;"><%=h.getHotelname()%><a href="#" class="btn btn-primary float-right">1,469</a></p>
+	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;"><%=h.getHotelname()%><a href="#" class="btn btn-primary float-right"><%=h.getPrice()%></a></p>
 </footer>
 
 <!-- jQuery library -->

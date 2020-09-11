@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>JSP Page</title>
         <style>
             *{
@@ -36,7 +37,36 @@
         </style>
     </head>
     <body>
-        <a href="logoutad">Logout</a><br>
+        <header id="nav-bar">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <!--<i class="fa fa-backward" aria-hidden="true"></i>-->
+                <i class="fa fa-backward mr-1" aria-hidden="true" style="font-size: 30px; color: red;"></i>
+                <a class="navbar-brand text-danger mr-3" href="index.jsp">Back to Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#create">Create <span class="sr-only">(current)</span></a>
+		      </li>
+<!--		      <li class="nav-item">
+		        <a class="nav-link" href="#remove">Remove</a>
+		      </li>-->
+		      <li class="nav-item">
+		        <a class="nav-link" href="#update">Update</a>
+		      </li>
+		   </ul>
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="navbar-brand text-danger" href="logoutad"><i class="fa fa-sign-out mr-3" style="font-size: 30px; color:red;" aria-hidden="true"></i>Logout</a>
+                    </li>
+                  </ul>
+
+                </div>
+        </nav>
+        </header>
+    <section id="create">
         <h1 class="text-center text-warning">Add Hotel</h1>
         <form action="create" method="post" class="ml-auto" enctype="multipart/form-data">
             <label for="hname">Hotel name:</label>
@@ -55,11 +85,15 @@
             <input type="number" class="form-control" name="price" id="price" min="100" autocomplete="off"  required>
             <input type="submit" class="form-control mt-3 btn btn-success" value="Submit">
         </form>
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Popper JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    </body>
+    </section>  
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="js/smooth-scroll.js">
+        var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+   </body>
 </html>
