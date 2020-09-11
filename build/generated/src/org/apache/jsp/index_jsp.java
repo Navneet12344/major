@@ -78,16 +78,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t      <li class=\"nav-item\">\n");
       out.write("\t\t        <a class=\"nav-link\" href=\"#about_i\">About</a>\n");
       out.write("\t\t      </li>\n");
-      out.write("\t\t      <li class=\"nav-item dropdown\">\n");
-      out.write("\t\t        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
-      out.write("\t\t          Menu\n");
-      out.write("\t\t        </a>\n");
-      out.write("\t\t        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n");
-      out.write("\t\t          <a class=\"dropdown-item\" href=\"#\">Your Account</a>\n");
-      out.write("\t\t          <div class=\"dropdown-divider\"></div>\n");
-      out.write("\t\t          <a class=\"dropdown-item\" href=\"logout\">Logout</a>\n");
-      out.write("\t\t        </div>\n");
-      out.write("\t\t      </li>\n");
       out.write("\t\t      <li class=\"nav-item\">\n");
       out.write("\t\t        <a class=\"nav-link\" href=\"#contact_us\">Contact Us</a>\n");
       out.write("\t\t      </li>\n");
@@ -257,24 +247,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<section>\n");
       out.write("\t<div class=\"container-fluid\">\n");
       out.write("        <h3 class=\"my-5 text-secondary\">These top hotels are just a click away!</h3>\n");
+      out.write("        <div class=\"row text-center\">  \n");
       out.write("        ");
-int count=Database.NoofHotels();
-        System.out.println(count);
-        for(int i=0;i<count;i++) { 
-      out.write("    \n");
-      out.write("           <div class=\"row text-center\">  \n");
+List<Hotel> list=Database.getHotelRecords();
+            for(Hotel h:list){
+                int hid=Integer.parseInt(h.getHotelid());    
+                String iname=Database.getImageName(hid);
+            
+      out.write("\n");
       out.write("                <div class=\"col-lg-4 col-md-4 col-12\">\n");
       out.write("        \t\t<div class=\"card\" style=\"width:400px;\">\n");
-      out.write("                            ");
-List<Hotel> list=Database.getHotelRecords();
-                            for(Hotel h:list){
-                               int hid=Integer.parseInt(h.getHotelid());    
-                               String iname=Database.getImageName(hid);
-                            
-      out.write("\n");
       out.write("                            \n");
-      out.write("                            <img class=\"card-img-top\" src=\"images/iname\" style=\"height: 200px;\" alt=\"image\">\n");
-      out.write("\t\t\t\t<div class=\"card-body\">\n");
+      out.write("                            <img class=\"card-img-top\" src=\"images/");
+      out.print(iname);
+      out.write("\" style=\"height: 200px;\" alt=\"image\">\n");
+      out.write("         \t\t\t<div class=\"card-body\">\n");
       out.write("\t\t\t\t    <h4 class=\"card-title\">");
       out.print(h.getHotelname());
       out.write("</h4>\n");
@@ -283,15 +270,14 @@ List<Hotel> list=Database.getHotelRecords();
       out.write(" <br> ");
       out.print(h.getAddress());
       out.write("</p>\n");
-      out.write("\t\t\t\t    <a href=\"hotel1.jsp\" class=\"btn btn-primary\">Visit</a>\n");
+      out.write("\t\t\t            <a href=\"hotel1.jsp\" class=\"btn btn-primary\">Visit</a>\n");
       out.write("                                </div>\n");
-      out.write("\t\t\t    </div>\n");
-      out.write("        \t</div>\n");
-      out.write("           </div>\n");
+      out.write("\t\t\t</div>\n");
+      out.write("                </div>\n");
       out.write("        ");
- } 
+}
       out.write("\n");
-      out.write("        \n");
+      out.write("         </div>\n");
       out.write("<!--        <div class=\"row text-center\">\n");
       out.write("        \t<div class=\"col-lg-4 col-md-4 col-12\">\n");
       out.write("        \t\t<div class=\"card\" style=\"width:400px;\">\n");

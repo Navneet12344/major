@@ -22,6 +22,8 @@ public class LoginController extends HttpServlet {
               out.println(email_add);
               String status=Database.checkUser(email_add,password);
               String name=Database.getUserName(email_add);
+              
+                System.out.println(name);
                if(status.equals("Valid user"))
               {
                   HttpSession session=request.getSession(true);

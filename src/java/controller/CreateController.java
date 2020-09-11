@@ -27,7 +27,8 @@ public class CreateController extends HttpServlet {
              String price=request.getParameter("price");
              int hid=Database.storeHotel(hotelname,rating,address,about,mbno,price);
              Part filepart=request.getPart("img");
-             String path=request.getServletContext().getRealPath("/images");
+//             String path=request.getServletContext().getRealPath("/images");
+             String path="C:\\Users\\DELL USER\\Documents\\NetBeansProjects\\SmartCity\\web\\images";
              String genFileName=util.Utility.generateFileName(filepart.getSubmittedFileName());
              if(util.Utility.saveFile(genFileName, path, filepart.getInputStream()) && Database.saveImageToDatabase(hid,genFileName))
                {

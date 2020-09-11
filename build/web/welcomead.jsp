@@ -54,7 +54,7 @@
              out.print("<table border='1' cellpadding='4' width='70%'>");
              out.print("<tr><th>Hid</th><th>HName</th><th>Rating</th><th>Address</th><th>About</th><th>Contact No.</th><th>Price</th>");
              for(Hotel h:list){
-                   out.print("<tr><td>"+h.getHotelid()+"</td><td>"+h.getHotelname()+"</td><td>"+h.getRating()+"</td><td>"+h.getAddress()+"</td><td>"+h.getAbout()+"</td><td>"+h.getContact_No()+"</td><td>"+h.getPrice()+"</td><td>");
+                   out.print("<tr><td>"+h.getHotelid()+"</td><td>"+h.getHotelname()+"</td><td>"+h.getRating()+"</td><td>"+h.getAddress()+"</td><td>"+h.getAbout()+"</td><td>"+h.getContact_No()+"</td><td>"+h.getPrice()+"</td>");
              
              }
             out.print("</table>");

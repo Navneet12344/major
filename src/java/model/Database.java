@@ -141,6 +141,7 @@ public class Database {
 	    } catch (Exception ex) {
 		System.out.println(ex);
             }
+         System.out.println("hotel id in store hotel is"+hid);
 	    return hid;
     }
     public static boolean saveImageToDatabase(int Hid,String fileName)
@@ -156,20 +157,6 @@ public class Database {
              return false;
          }
      }
-    public static int NoofHotels(){
-        int c=0;
-        try(Connection con=ConnectionM.getConnection()){
-            PreparedStatement ps=con.prepareCall("SELECT * FROM HOTELS");
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()){
-                c++;
-            }
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-        return c;
-    }
     public static List<Hotel> getHotelRecords() throws SQLException, ClassNotFoundException{
         List <Hotel> list=new ArrayList<Hotel>();
         try{

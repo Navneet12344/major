@@ -32,16 +32,6 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="#about_i">About</a>
 		      </li>
-		      <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Menu
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="#">Your Account</a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="logout">Logout</a>
-		        </div>
-		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#contact_us">Contact Us</a>
 		      </li>
@@ -203,9 +193,26 @@
 <section>
 	<div class="container-fluid">
         <h3 class="my-5 text-secondary">These top hotels are just a click away!</h3>
-        
-        
-        <div class="row text-center">
+        <div class="row text-center">  
+        <%List<Hotel> list=Database.getHotelRecords();
+            for(Hotel h:list){
+                int hid=Integer.parseInt(h.getHotelid());    
+                String iname=Database.getImageName(hid);
+            %>
+                <div class="col-lg-4 col-md-4 col-12">
+        		<div class="card" style="width:400px;">
+                            
+                            <img class="card-img-top" src="images/<%=iname%>" style="height: 200px;" alt="image">
+         			<div class="card-body">
+				    <h4 class="card-title"><%=h.getHotelname()%></h4>
+				    <p class="card-text"><%=h.getRating()%> <br> <%=h.getAddress()%></p>
+			            <a href="hotel1.jsp" class="btn btn-primary">Visit</a>
+                                </div>
+			</div>
+                </div>
+        <%}%>
+         </div>
+<!--        <div class="row text-center">
         	<div class="col-lg-4 col-md-4 col-12">
         		<div class="card" style="width:400px;">
                             <img class="card-img-top" src="images/1st hotel/img1.jpg" style="height: 200px;" alt="image">
@@ -356,7 +363,7 @@
 					  </div>
 			    </div>
         	</div>
-        </div>
+        </div>-->
     </div>
 </section>
 <!-- hotels with images ends -->
