@@ -1,3 +1,5 @@
+<%@page import="model.Database"%>
+<%@page import="model.Hotel"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,22 +36,28 @@
 	      <a class="nav-link" href="#price">Price</a>
 	    </li>
 	  </ul>
+            
 	</div>
 </nav>
 </header>
 <!-- navbar1 ends -->
+<%  int hid=Integer.parseInt(request.getParameter("page"));
+    Hotel h=Database.getHotelFromId(hid);
+    String iname=Database.getImageName(hid);
+%>
+<img src="images/<%=iname%>" alt="Hotel">
 
-<section>
+<!--<section>
 <div class="container-fluid">
 <div id="demo" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+   Indicators 
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
 
-  <!-- The slideshow -->
+   The slideshow 
   <div class="carousel-inner">
     <div class="carousel-item active">
        <div class="row">
@@ -92,7 +100,7 @@
     </div>
   </div>
 
-  <!-- Left and right controls -->
+   Left and right controls 
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
@@ -102,16 +110,16 @@
 
 </div>
 </div>
-</section>
+</section>-->
 <!-- corousel ends -->
 
 <section>
 	<div class="container">
 		<div class="card mx-auto mt-5">
 			<div class="card-body">
-				<h3 class="card-title" style="color: #ff0080;">THE UMED HOTEL <a href="#" class="btn btn-primary float-right">1,469</a></h3> <br>
-                <p class="card-text"> 3-star hotel<br>
-                Near Anand Cinema, Station Rd, opp. Umaid kanya school, Jodhpur, Rajasthan 342001  0291 265 4093<br><br>
+				<h3 class="card-title" style="color: #ff0080;"><%=h.getHotelname()%> <a href="#" class="btn btn-primary float-right"><%=h.getPrice()%></a></h3> <br>
+                <p class="card-text"> <%=h.getRating()%><br>
+                <%=h.getAddress()%><br><br>
                 <a href="#price" class="btn btn-primary">Book Now</a>
                 </p>
 			</div>
@@ -126,16 +134,13 @@
                 <div class="row">
                 	<div class="col-lg-8 col-md-8 col-12">
                 		<h4 class="card-title">About this hotel</h4>
-						<p class="card-text">This informal hotel in an area with shops is a 7-minute walk from the Jodhpur train station, 2 km from the 15th-century Mehrangarh Fort and 4 km from the stately 1943 Umaid Bhawan Palace.<span id="dots">...</span><span id="more">The warm, unassuming rooms and suites with simple furnishings have flat-screen TVs, and tea and coffeemaking facilities. Room service is available.<br><br>Limited parking is included. Amenities consist of a casual restaurant, and a rooftop terrace offering city views.<br><br>
-						Check-in time: 11:00 AM<br>
-						Check-out time: 11:00 AM</span></p>
-                        <button id="button" onclick="read()">Read More</button>
+						<p class="card-text"><%=h.getAbout()%></p>
                 	</div>
                 	<div class="col-lg-4 col-md-4 col-12">
                 		<h6 class="card-title mt-5">Address and contact information</h6>
                 		<p class="card-text">
-                			<i class="fa fa-map-marker mr-3" aria-hidden="true"></i>Near Anand Cinema, Station Rd, opp. Umaid kanya school, Jodhpur, Rajasthan 342001<br><br>
-                			<i class="fa fa-phone mr-3" aria-hidden="true"></i>0291 265 4093
+                			<i class="fa fa-map-marker mr-3" aria-hidden="true"></i><%=h.getAddress()%><br><br>
+                			<i class="fa fa-phone mr-3" aria-hidden="true"></i><%=h.getContact_No()%>
                 
                 		</p>
                 	</div>
@@ -149,8 +154,8 @@
 				<p class="card-text">
                 	<i class="fa fa-wifi mr-3" aria-hidden="true"></i>Wifi<span class="badge badge-secondary ml-3 mr-5">free</span>
                 	<i class="fa fa-car mr-3" aria-hidden="true"></i>Parking<span class="badge badge-secondary ml-3 mr-5">free</span>
-                	<i class="fa fa-snowflake-o mr-3" aria-hidden="true"></i>A.C.<span class="badge badge-secondary ml-3 mr-5">free</span>
-                	<i class="fa fa-cutlery mr-3" aria-hidden="true"></i>Breakfast<span class="badge badge-secondary ml-3 mr-5">extra charge</span><hr>
+                	<!--<i class="fa fa-snowflake-o mr-3" aria-hidden="true"></i>A.C.<span class="badge badge-secondary ml-3 mr-5">free</span>-->
+                	<!--<i class="fa fa-cutlery mr-3" aria-hidden="true"></i>Breakfast<span class="badge badge-secondary ml-3 mr-5">extra charge</span><hr>-->
                 </p>
                 <div class="row">
                 	<div class="col-lg-6 col-md-6 col-12">
@@ -172,37 +177,37 @@
 		                <h5 class="card-title"><i class="fa fa-car mr-3 mt-3" aria-hidden="true"></i>Parking and Transportation</h5><hr>
 		                <p class="card-text">
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Parking<span class="badge badge-secondary ml-2">free</span><br>
-		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Airport Shuttle
+		                	<!--<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Airport Shuttle-->
 		                </p>
 
-		                <h5 class="card-title"><i class="fa fa-bed mr-3 mt-3" aria-hidden="true"></i>Rooms</h5><hr>
+<!--		                <h5 class="card-title"><i class="fa fa-bed mr-3 mt-3" aria-hidden="true"></i>Rooms</h5><hr>
 		                <p class="card-text">
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Air-conditioning<br>
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
 		                	Kitchen in some rooms
-		                </p>
+		                </p>-->
                 	</div>
                 	<div class="col-lg-6 col-md-6 col-12">
                         <h5 class="card-title"><i class="fa fa-cutlery mr-3 mt-3" aria-hidden="true"></i>Food and Drink</h5><hr>
 		                <p class="card-text">
-		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Restaurant<br>
+		                	<!--<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Restaurant<br>-->
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
 		                	Room Service<br>
-		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
-		                	Breakfast<span class="badge badge-secondary ml-3 mr-5">free</span><br>
-		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
-		                	Breakfast-buffet
+<!--		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
+		                	Breakfast<span class="badge badge-secondary ml-3 mr-5">free</span><br>-->
+<!--		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
+		                	Breakfast-buffet-->
 		                </p>
 
 		                <h5 class="card-title"><i class="fa fa-bell mr-3 mt-3" aria-hidden="true"></i>Services</h5><hr>
 		                <p class="card-text">
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Front-desk<br>
-		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
-		                	Full-service laundry<span class="badge badge-secondary ml-3 mr-5">24 hour</span><br>
+<!--		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>
+		                	Full-service laundry<span class="badge badge-secondary ml-3 mr-5">24 hour</span><br>-->
 		                </p>
 
 
-		                <h5 class="card-title"><i class="fa fa-tint mr-3 mt-3" aria-hidden="true"></i>Pools</h5><hr>
+<!--		                <h5 class="card-title"><i class="fa fa-tint mr-3 mt-3" aria-hidden="true"></i>Pools</h5><hr>
 		                <p class="card-text">
 		                	<i class="fa fa-ban ml-5 mr-3" aria-hidden="true"></i>No-pools<br>
 		                	<i class="fa fa-ban ml-5 mr-3" aria-hidden="true"></i>
@@ -215,7 +220,7 @@
 		                	<i class="fa fa-check ml-5 mr-3 text-success" aria-hidden="true"></i>Fitness center<br>
 		                	<i class="fa fa-ban ml-5 mr-3" aria-hidden="true"></i>
 		                	No-spa<br>
-		                </p>
+		                </p>-->
                 	</div>
                 </div>
             </div>
@@ -224,14 +229,14 @@
 </section>
 <!--------about section ends-------->
 
-<!-- location section -->
+<!-- location section 
 <p id="location">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.2117059317948!2d73.02211681450713!3d26.287236093064692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418b89a026c227%3A0x2b23d4ab9d7efc7b!2sTHE%20UMED%20HOTEL!5e0!3m2!1sen!2sin!4v1597132510280!5m2!1sen!2sin" width="100%" height="700" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-</p>
+</p>-->
 <!-- location section ends -->
 
 <!-- photos -->
-<section id="photos">
+<!--<section id="photos">
   <div class="container" id="image">
 	<div class="card mx-auto mt-5">
 		<div class="card-body">
@@ -268,7 +273,7 @@
 		</div>
 	</div>
   </div>
-</section>
+</section>-->
 <!-- photos end -->
 
 <!-- price start -->
@@ -281,7 +286,7 @@
                     <input type="date" class="mr-5" id="Check-in" min="2018-02-01" name="Check-in">
 		    <label for="Check-out">Check-out:</label>
 		    <input type="date" id="Check-out" name="Check-out">
-                    <input type="hidden" value="The Umed Hotel" id="hn" name="hname">
+                    <input type="hidden" value="<%=h.getHotelname()%>" id="hn" name="hname">
                     <input type="submit" class="btn btn-success" value="Check Price" onclick="showPrice()">
                     <p class="mt-3">Total price :<span id="addcontent"></span></p>
                     <input type="submit" class="btn btn-primary" value="Make Payment">

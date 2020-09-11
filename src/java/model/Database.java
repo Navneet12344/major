@@ -157,6 +157,23 @@ public class Database {
              return false;
          }
      }
+    public static Hotel getHotelFromId(int hid) throws SQLException, ClassNotFoundException{
+        Hotel h=null;
+        try{
+            Connection con=ConnectionM.getConnection();
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM HOTELS WHERE HID=?");
+            ps.setInt(1,hid);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                h= new Hotel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+            }
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            System.out.println(e);
+        }
+        return h;
+    }
     public static List<Hotel> getHotelRecords() throws SQLException, ClassNotFoundException{
         List <Hotel> list=new ArrayList<Hotel>();
         try{
@@ -191,27 +208,22 @@ public class Database {
         } 
        return iname;
     }
-//     <%int count=Database.NoofHotels();
-//        System.out.println(count);
-//        for(int i=0;i<count;i++){%>    
-//           <div class="row text-center">  
-//                <div class="col-lg-4 col-md-4 col-12">
-//        		<div class="card" style="width:400px;">
-//                            <%List<Hotel> list=Database.getHotelRecords();
-//                            for(Hotel h:list){
-//                               int hid=Integer.parseInt(h.getHotelid());    
-//                               String iname=Database.getImageName(hid);
-//                            %>
-//                            
-//                            <img class="card-img-top" src="images/iname" style="height: 200px;" alt="image">
-//				<div class="card-body">
-//				    <h4 class="card-title"><%=h.getHotelname()%></h4>
-//				    <p class="card-text"><%=h.getRating()%> <br> <%=h.getAddress()%></p>
-//				    <a href="hotel1.jsp" class="btn btn-primary">Visit</a>
-//                                </div>
-//			    </div>
-//        	</div>
-//           </div>
-//        <%}%>
+//    public static int getHotelId(String hname){
+//       int hid=0;
+//       try{
+//            Connection con=ConnectionM.getConnection();
+//            PreparedStatement ps=con.prepareStatement("SELECT HID FROM HOTELS WHERE HNAME=?");
+//            ps.setString(1,hname);
+//            ResultSet rs=ps.executeQuery();
+//            while(rs.next()){
+//                hid=Integer.parseInt(rs.getString(1));
+//            }
+//        }
+//        catch(ClassNotFoundException | SQLException e)
+//        {
+//            System.out.println(e);
+//        } 
+//       return hid;
+//    }
 }
 

@@ -206,7 +206,8 @@
          			<div class="card-body">
 				    <h4 class="card-title"><%=h.getHotelname()%></h4>
 				    <p class="card-text"><%=h.getRating()%> <br> <%=h.getAddress()%></p>
-			            <a href="hotel1.jsp" class="btn btn-primary">Visit</a>
+                                    
+			            <a href="hotel1.jsp?page=<%=hid%>" class="btn btn-primary">Visit</a>
                                 </div>
 			</div>
                 </div>
