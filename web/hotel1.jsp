@@ -286,7 +286,8 @@
                     <input type="date" class="mr-5" id="Check-in" min="2018-02-01" name="Check-in">
 		    <label for="Check-out">Check-out:</label>
 		    <input type="date" id="Check-out" name="Check-out">
-                    <input type="hidden" value="<%=h.getHotelname()%>" id="hn" name="hname">
+                    <!--<input type="hidden" value="%=h.getHotelname()%>" id="hn" name="hname">-->
+                    <%session.setAttribute("hotelname",h.getHotelname());%>
                     <input type="submit" class="btn btn-success" value="Check Price" onclick="showPrice()">
                     <p class="mt-3">Total price :<span id="addcontent"></span></p>
                     <input type="submit" class="btn btn-primary" value="Make Payment">
@@ -297,7 +298,7 @@
 <!-- price end -->
 
 <footer>
-	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;">THE UMED HOTEL<a href="#" class="btn btn-primary float-right">1,469</a></p>
+	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;"><%=h.getHotelname()%><a href="#" class="btn btn-primary float-right">1,469</a></p>
 </footer>
 
 <!-- jQuery library -->
