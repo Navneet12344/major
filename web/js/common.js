@@ -62,3 +62,4 @@ function showPrice()
                 xmlhttpobject.send();
                 //document.getElementById() return object of input
             }
+ 

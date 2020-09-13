@@ -159,6 +159,7 @@ public class Database {
      }
     public static Hotel getHotelFromId(int hid) throws SQLException, ClassNotFoundException{
         Hotel h=null;
+        System.out.println("entry");
         try{
             Connection con=ConnectionM.getConnection();
             PreparedStatement ps=con.prepareStatement("SELECT * FROM HOTELS WHERE HID=?");

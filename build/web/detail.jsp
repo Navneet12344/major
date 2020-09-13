@@ -38,7 +38,7 @@
           </svg> +(91)-9152624707</h4>
         </div>
         <div class=" col-lg-4 col-md-4 col-12 px-5 py-5">
-          <input type="button" class="btn btn-success" data-toggle="modal" data-target="#appointmentModal" value="Book Appoitment">
+          <input type="button" class="btn btn-success" data-toggle="modal" data-target="#appointmentModal" value="Book Appointment">
         </div>
         <div class="modal fade" id="appointmentModal">
     

@@ -25,6 +25,8 @@ public class PriceController extends HttpServlet {
           try(PrintWriter out=response.getWriter()){
               String cin = request.getParameter("value1");
               String cout= request.getParameter("value2");
+              session.setAttribute("cin",cin);
+              session.setAttribute("cout",cout);
               String HName=request.getParameter("value3");
 //              System.out.println(HName);
               DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
@@ -51,6 +53,7 @@ public class PriceController extends HttpServlet {
               }
             total=Database.getPrice(days,HName);
             out.println(total);
+            session.setAttribute("total",total);
           }
            catch(Exception e){
              e.printStackTrace();

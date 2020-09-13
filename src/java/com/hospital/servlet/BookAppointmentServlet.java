@@ -38,6 +38,7 @@ public class BookAppointmentServlet extends HttpServlet {
 		
 		String query = "insert into appointments (user_mobile, doctorid, date) VALUES  ('"+
 		mobile+"','"+doctorid+"',STR_TO_DATE('"+date+"', '%m/%d/%Y'))";
+                System.out.println(query);
 		int flag = DatabaseConnectionUtil.save(query);
 		
 		if(flag == 1)

@@ -7,35 +7,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Database;
 
-@WebServlet(name = "DeleteController", urlPatterns = {"/delete"})
-public class DeleteController extends HttpServlet {
+
+@WebServlet(name = "UpdateController", urlPatterns = {"/update"})
+public class UpdateController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("hiiiiii000");
         try (PrintWriter out = response.getWriter()) {
-            int Hid=Integer.parseInt(request.getParameter("id"));
-//            int Hid=Integer.parseInt(request.getParameter("hotelid"));
-//            int Hid=4;
-            System.out.println("hiiiii");
-            int flag=Database.removeHotel(Hid);
-            System.out.println("hiiiii2222");
-//            s.removeAttribute("hid");
-            if(flag==1){
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Hotel removed successfully.');");
-                out.println("location='welcomead.jsp';");
-                out.println("</script>");
-            }
-            else{
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Something went wrong.');");
-                out.println("location='welcomead.jsp';");
-                out.println("</script>");
-            }
+            String hotel=request.getParameter("hotel");
+            String select=request.getParameter("select");
+            String change=request.getParameter("change");
+//            System.out.println(hotel);
+//             System.out.println(select);
+//              System.out.println(change);
+            String query="update hotels set "+select+"='"+change+"' where HName='"+hotel+"'";
+            System.out.println(query);
+            int flag=Database.save(query);
+            if(flag == 1)
+		{
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('"+select+" Updated');");
+			out.println("location='index.jsp';");
+                        out.println("</script>");
+		
+		}
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Failed to Update');");
+			out.println("location='adminform.jsp';");
+			out.println("</script>");
+			
+		}
         }
     }
 

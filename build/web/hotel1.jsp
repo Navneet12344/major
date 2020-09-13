@@ -42,6 +42,10 @@
 </header>
 <!-- navbar1 ends -->
 <%  int hid=Integer.parseInt(request.getParameter("page"));
+    System.out.println("hotel id is"+hid);
+    session.setAttribute("hotelid",hid);
+    int p=Integer.parseInt(session.getAttribute("hotelid").toString());
+    System.out.println("p id is"+p);
     Hotel h=Database.getHotelFromId(hid);
     String iname=Database.getImageName(hid);
 %>
@@ -118,7 +122,7 @@
 	<div class="container">
 		<div class="card mx-auto mt-5">
 			<div class="card-body">
-				<h3 class="card-title" style="color: #ff0080;"><%=h.getHotelname()%> <a href="#" class="btn btn-primary float-right"><%=h.getPrice()%></a></h3> <br>
+				<h3 class="card-title" style="color: #ff0080;"><%=h.getHotelname()%> <a href="#" class="btn btn-primary float-right"><i class="fa fa-inr" aria-hidden="true"></i><%=h.getPrice()%></a></h3> <br>
                 <p class="card-text"> <%=h.getRating()%><br>
                 <%=h.getAddress()%><br><br>
                 <a href="#price" class="btn btn-primary">Book Now</a>
@@ -283,6 +287,7 @@
 	  <div class="card mt-5 mb-5">
 		<div class="card-body mx-auto">
                     <h3 style="text-align: center; color: brown;">Prices</h3><hr class="mx-auto" style="width: 15%;">
+                    <!--<form action="book" method="post">-->
 		    <label for="Check-in">Check-in:</label>
                     <input type="date" class="mr-5" id="Check-in" min="2018-02-01" name="Check-in">
 		    <label for="Check-out">Check-out:</label>
@@ -291,7 +296,10 @@
                     <!--%session.setAttribute("hotelname",h.getHotelname());%-->
                     <input type="submit" class="btn btn-success" value="Check Price" onclick="showPrice()">
                     <p class="mt-3">Total price :<span id="addcontent"></span></p>
-                    <input type="submit" class="btn btn-primary" value="Make Payment">
+                    
+                    <a href="book" class="btn btn-primary">Make Payment</a>
+                   
+                    <!--</form>-->
                 </div>
 	</div>
    </div>
@@ -299,7 +307,7 @@
 <!-- price end -->
 
 <footer>
-	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;"><%=h.getHotelname()%><a href="#" class="btn btn-primary float-right"><%=h.getPrice()%></a></p>
+	<p class="p-3 mb-0 fixed-bottom" style="background-color:#ececec; font-weight: bold;"><%=h.getHotelname()%><a href="#" class="btn btn-primary float-right"><i class="fa fa-inr" aria-hidden="true"></i><%=h.getPrice()%></a></p>
 </footer>
 
 <!-- jQuery library -->

@@ -64,7 +64,7 @@
                    %>
                    
                    
-                   <a href="delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                   <a href="delete?id=<%=h.getHotelid()%>"><i class="fa fa-trash" aria-hidden="true"></i></a>
                    <%
                    out.print("</td></tr>");
              }

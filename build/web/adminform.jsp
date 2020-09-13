@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="model.Hotel"%>
+<%@page import="model.Database"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%          //scriplet tag to add java code in jsp
     response.setHeader("Pragma", "no-store,no-cache");
@@ -47,8 +50,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav">
-		      <li class="nav-item">
-		        <a class="nav-link" href="#create">Create <span class="sr-only">(current)</span></a>
+                      <li class="nav-item">
+		        <a class="nav-link" href="#create"><span class="sr-only">(current)</span>Create</a>
 		      </li>
 <!--		      <li class="nav-item">
 		        <a class="nav-link" href="#remove">Remove</a>
@@ -86,6 +89,31 @@
             <input type="submit" class="form-control mt-3 btn btn-success" value="Submit">
         </form>
     </section>  
+        
+<section id="update" class="mb-5">
+    <h1 class="text-center text-warning mt-5">Update Hotel</h1>
+    <form method="post" action="update">
+        <div class="form-group">
+             <label for="hotel">Select hotel(any one)</label>
+              <select class="form-control" id="hotel" name="hotel">
+                  <%List<Hotel> list=Database.getHotelRecords();
+                  for(Hotel h:list){
+                  %>
+                <option><%=h.getHotelname()%></option>
+                <%}%>
+              </select>
+            <label for="select">Select list(any one)</label>
+              <select class="form-control" id="select" name="select">
+                <!--<option>Rating</option>-->
+                <option>Price</option>
+                <option>Contact_no</option>
+              </select>
+              <input type="number" class="form-control mt-5" name="change" min="100" autocomplete="off"  required>
+              <input type="submit" class="form-control mt-3 btn btn-success" value="Submit">
+        </div>
+        
+    </form> 
+</section>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->

@@ -8,6 +8,7 @@ public class Hotel {
     private String About;
     private String Contact_No;
     private String Price;
+    private Bookings b;
     public Hotel(String Hid,String Hname, String Rating, String Address, String About, String Contact_No,String Price) {
         this.Hid = Hid;
         this.HName = Hname;
@@ -43,4 +44,10 @@ public class Hotel {
     public String getPrice() {
         return Price;
     }
+    public Bookings getBookings() {
+		return b;
+	}
+    public void setBookings(Bookings b) {
+		this.b = b;
+	}
 }
