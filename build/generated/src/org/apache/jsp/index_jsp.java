@@ -102,11 +102,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print( session.getAttribute("uname") );
       out.write("\n");
       out.write("              \t\t\t</button>\n");
-      out.write("              \t\t\t<div class=\"dropdown-menu\">\n");
+      out.write("<!--              \t\t\t<div class=\"dropdown-menu\">\n");
       out.write("                                    <a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#bookModel\">Bookings</a>\n");
       out.write("                \t\t    <a class=\"dropdown-item\" href=\"logout\">Logout</a>\n");
       out.write("                \t\t\t\n");
-      out.write("              \t\t        </div>\n");
+      out.write("              \t\t        </div>-->\n");
       out.write("                      </div>\n");
       out.write("                     </li>\n");
       out.write("                    \n");
@@ -124,23 +124,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</nav>\n");
       out.write("</section>\n");
       out.write("<!--model for bookings-->\n");
-      out.write("<div class=\"modal\" id=\"bookModel\">\n");
+      out.write("<!--<div class=\"modal\" id=\"bookModel\">\n");
       out.write("    <div class=\"modal-dialog\">\n");
       out.write("\t\t<div class=\"modal-content\">\n");
       out.write("\n");
-      out.write("\t\t<!-- Modal Header -->\n");
+      out.write("\t\t Modal Header \n");
       out.write("\t\t<div class=\"modal-header\">\n");
       out.write("\t\t\t<h4 class=\"modal-title\" style=\"font-size: 30px;\">Bookings</h4>\n");
       out.write("\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n");
       out.write("\t\t</div>\n");
       out.write("\n");
-      out.write("\t\t<!-- Modal body -->\n");
+      out.write("\t\t Modal body \n");
       out.write("\t\t<div class=\"modal-body\">\n");
       out.write("         <table  class=\"table table-hover\">\n");
       out.write("\t\t\t  <thead>\n");
       out.write("\t\t\t    <tr>\n");
       out.write("\t\t\t      <th scope=\"col\">Hotel Name</th>\n");
-      out.write("\t\t\t      <th scope=\"col\">Address</th>\n");
       out.write("                              <th scope=\"col\">Check_in</th>\n");
       out.write("                              <th scope=\"col\">Check_out</th>\n");
       out.write("                              <th scope=\"col\">Contact No.</th>\n");
@@ -148,52 +147,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t    </tr>\n");
       out.write("\t\t\t  </thead>\n");
       out.write("\t\t\t  <tbody>\n");
-      out.write("\t\t\t");
- 
-			if(session.getAttribute("mail")!= null && ((Bookings)session.getAttribute("mail")).getHotelList()!= null) {
-			for(Hotel h : ((Bookings)session.getAttribute("mail")).getHotelList()) { 
-				
-				
-			
-      out.write("\n");
-      out.write("\t\t\t\t<tr>\n");
-      out.write("\t\t\t      <td>");
-      out.print( h.getHotelname() );
-      out.write("</td>\n");
-      out.write("\t\t\t      <td>");
-      out.print( h.getAddress() );
-      out.write("</td>\n");
-      out.write("                              <td>");
-      out.print( session.getAttribute("cin") );
-      out.write("</td>\n");
-      out.write("                              <td>");
-      out.print( session.getAttribute("cout") );
-      out.write("</td>\n");
-      out.write("                              <td>");
-      out.print( h.getContact_No() );
-      out.write("</td>\n");
-      out.write("                              <td>");
-      out.print( session.getAttribute("total") );
-      out.write("</td>\n");
-      out.write("\t\t\t    </tr>\n");
-      out.write("\t\t\t\t\n");
-      out.write("\t\t\t");
- }} 
-      out.write("\n");
+      out.write("\t\t\n");
       out.write("\t\t\t\n");
       out.write("\t\t\t\n");
       out.write("\t\t\t\t</tbody>\n");
       out.write("\t\t\t</table>\n");
       out.write("\t\t\t\n");
       out.write("\n");
-      out.write("\t\t\t    <!-- Modal footer -->\n");
+      out.write("\t\t\t     Modal footer \n");
       out.write("\t\t\t    <div class=\"modal-footer\">\n");
       out.write("\t\t\t        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n");
       out.write("\t\t\t    </div>\n");
       out.write("\t\t    </div>\n");
-      out.write("                </div>\n");
       out.write("\t</div>\n");
-      out.write("</div>\n");
+      out.write("    </div>\n");
+      out.write("</div>-->\n");
       out.write("<!--model for bookings-->\n");
       out.write("<!-- The Modal for login-->\n");
       out.write("<div class=\"modal\" id=\"myModalL\">\n");
