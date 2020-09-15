@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2020 at 10:50 AM
+-- Generation Time: Sep 15, 2020 at 11:30 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -48,13 +48,33 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `bookings` (
-  `Bid` bigint(20) NOT NULL,
-  `CName` varchar(45) DEFAULT NULL,
-  `Check_in` date DEFAULT NULL,
-  `Check_out` date DEFAULT NULL,
-  `HName` varchar(45) DEFAULT NULL,
-  `Payment` int(11) DEFAULT NULL
+  `bid` bigint(20) NOT NULL,
+  `hid` bigint(20) DEFAULT NULL,
+  `Check_in` varchar(45) DEFAULT NULL,
+  `Check_out` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`bid`, `hid`, `Check_in`, `Check_out`) VALUES
+(1, 1, '2020-09-17', '2020-09-19'),
+(2, 1, '2020-09-17', '2020-09-19'),
+(3, 1, '2020-09-18', '2020-09-21'),
+(4, 1, '2020-09-18', '2020-09-21'),
+(5, 1, '2020-09-18', '2020-09-21'),
+(6, 1, '2020-09-17', '2020-09-26'),
+(7, 1, '2020-09-17', '2020-09-26'),
+(8, 1, '2020-09-17', '2020-09-26'),
+(9, 1, '2020-09-17', '2020-09-26'),
+(10, 1, '2020-09-17', '2020-09-26'),
+(11, 1, '2020-09-17', '2020-09-26'),
+(12, 1, '2020-09-17', '2020-09-26'),
+(13, 1, '2020-09-17', '2020-09-26'),
+(14, 1, '2020-09-17', '2020-09-26'),
+(15, 1, '2020-09-17', '2020-09-26'),
+(16, 1, '2020-09-17', '2020-09-26');
 
 -- --------------------------------------------------------
 
@@ -93,10 +113,19 @@ CREATE TABLE `hotels` (
   `HName` varchar(100) DEFAULT NULL,
   `Rating` varchar(45) DEFAULT NULL,
   `Address` varchar(100) DEFAULT NULL,
-  `About` varchar(150) DEFAULT NULL,
+  `About` varchar(1500) DEFAULT NULL,
   `Contact_no` varchar(11) DEFAULT NULL,
   `Price` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hotels`
+--
+
+INSERT INTO `hotels` (`Hid`, `HName`, `Rating`, `Address`, `About`, `Contact_no`, `Price`) VALUES
+(1, 'THE UMED HOTEL', '3-star hotel', 'Near Anand Cinema, Station Rd, opp. Umaid kanya school, Jodhpur, Rajasthan 342001 0291 265 4093', 'This informal hotel in an area with shops is a 7-minute walk from the Jodhpur train station, 2 km from the 15th-century Mehrangarh Fort and 4 km from the stately 1943 Umaid Bhawan Palace.The warm, unassuming rooms and suites with simple furnishings have flat-screen TVs, and tea and coffeemaking facilities.', '9887767890', '1000'),
+(3, 'Jodhpur Heritage Haveli', '1-star hotel', 'Gole Nadi, Brahmin Ki Gali Umaid Chowk, Jodhpur, Rajasthan 342001 \n', 'The buildings is contemporary in their use of space and light and context; and yet grounded in tradition. The Jodhpur Heritage Haveli find pride in the veritable heart of the Sun City and is one of the Jodhpur\'s finest heritage property. The newly renovated 9 room retain their old world warmth and grace with their understated elegance.', '07221968238', '1250'),
+(10, 'OYO 18825 Hotel Akshey', '3-star hotel', 'Rai Ka Bagh, Near Railway Station, Jodhpur, Rajasthan 342006 ', 'A 10-minute walk from Raikabag Palace Junction train station, this unfussy budget hotel is 4 km from Sardar Market and 5 km from Mehrangarh, a history museum in a former 15th-century fortress. Basic, air-conditioned rooms with wood furnishings feature Wi-Fi and flat-screen TVs, as well as en suite wet rooms. Amenities include a restaurant and a bar. Breakfast and parking are available.', '01246201614', '903');
 
 --
 -- Indexes for dumped tables
@@ -112,7 +141,7 @@ ALTER TABLE `admin`
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`Bid`);
+  ADD PRIMARY KEY (`bid`);
 
 --
 -- Indexes for table `customers`
@@ -140,7 +169,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `Bid` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `bid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -152,15 +181,9 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `hotels`
 --
 ALTER TABLE `hotels`
-  MODIFY `Hid` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Hid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-CREATE TABLE `images` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `Hid` INT NULL,
-  `imgname` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`));
-}
