@@ -1,3 +1,4 @@
+<%@page import="controller.Customer"%>
 <%@page import="model.Bookings"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Hotel"%>
@@ -37,10 +38,10 @@
 		        <a class="nav-link" href="#contact_us">Contact Us</a>
 		      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
+<!--		    <form class="form-inline my-2 my-lg-0">
 		      <input class="form-control mr-sm-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
 		      <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">Search</button>
-                    </form>
+                    </form>-->
 		    <ul class="navbar-nav navbar-right">
 		      <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#myModalS"><i class="fa fa-user mr-1" aria-hidden="true"></i>Sign Up</a></li>
                     
@@ -51,11 +52,11 @@
              			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 			<%= session.getAttribute("uname") %>
               			</button>
-<!--              			<div class="dropdown-menu">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#bookModel">Bookings</a>
+              			<div class="dropdown-menu">
+                                    <!--<a class="dropdown-item" data-toggle="modal" data-target="#bookModel">Bookings</a>-->
                 		    <a class="dropdown-item" href="logout">Logout</a>
                 			
-              		        </div>-->
+              		        </div>
                       </div>
                      </li>
                     
@@ -69,45 +70,7 @@
 		</nav>
 </section>
 <!--model for bookings-->
-<!--<div class="modal" id="bookModel">
-    <div class="modal-dialog">
-		<div class="modal-content">
 
-		 Modal Header 
-		<div class="modal-header">
-			<h4 class="modal-title" style="font-size: 30px;">Bookings</h4>
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-		</div>
-
-		 Modal body 
-		<div class="modal-body">
-         <table  class="table table-hover">
-			  <thead>
-			    <tr>
-			      <th scope="col">Hotel Name</th>
-                              <th scope="col">Check_in</th>
-                              <th scope="col">Check_out</th>
-                              <th scope="col">Contact No.</th>
-                              <th scope="col">Payment</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-		
-			
-			
-				</tbody>
-			</table>
-			
-
-			     Modal footer 
-			    <div class="modal-footer">
-			        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-			    </div>
-		    </div>
-	</div>
-    </div>
-</div>-->
-<!--model for bookings-->
 <!-- The Modal for login-->
 <div class="modal" id="myModalL">
     <div class="modal-dialog">
@@ -178,11 +141,11 @@
 			    <label for="pwd">Password:</label>
 			    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Enter password">
 		    </div>
-			<div class="form-group form-check">
+<!--			<div class="form-group form-check">
 				<label class="form-check-label">
 				<input class="form-check-input" type="checkbox"> Remember me
 				</label>
-			</div>
+			</div>-->
 			<button type="submit" class="btn btn-success">Submit</button>
 		</form>
 			</div>

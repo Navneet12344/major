@@ -23,15 +23,15 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">Overview</a>
 	    </li>
-	    <li class="nav-item">
+<!--	    <li class="nav-item">
 	      <a class="nav-link" href="#location">Location</a>
-	    </li>
+	    </li>-->
 	    <li class="nav-item">
 	      <a class="nav-link" href="#about">About</a>
 	    </li>
-	    <li class="nav-item">
+<!--	    <li class="nav-item">
 	      <a class="nav-link" href="#photos">Photos</a>
-	    </li>
+	    </li>-->
 	    <li class="nav-item">
 	      <a class="nav-link" href="#price">Price</a>
 	    </li>

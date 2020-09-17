@@ -94,7 +94,6 @@ span.psw {
 
   <div class="container2" style="background-color:#f1f1f1">
       <a href="#"><button type="button" class="cancelbtn">Cancel</button></a>
-    <span class="psw"><a href="#">Forgot password?</a></span>
   </div>
 </form>
 
