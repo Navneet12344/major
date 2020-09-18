@@ -29,7 +29,7 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="home_page.html">Home <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#about_i">About</a>
@@ -131,7 +131,7 @@
 		    </div>
 		    <div class="form-group">
 			    <label for="email">Email address:</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Format is characters@characters.domain" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Format is characters@characters.domain" required>
 		    </div>
 		    <div class="form-group">
 			    <label for="phone">Mobile no:</label>
@@ -139,7 +139,7 @@
 		    </div>
 		    <div class="form-group">
 			    <label for="pwd">Password:</label>
-			    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Enter password">
+			    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Enter password" autocomplete="off">
 		    </div>
 <!--			<div class="form-group form-check">
 				<label class="form-check-label">
